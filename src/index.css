@@ -1,13 +1,142 @@
 body {
+  background-color: #fff;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  font-family: sans-serif;
+  overflow-x: hidden;
+  min-width: 303px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* header related css */
+#header {
+  background-color: #000;
+  width: 100%;
+  height: 58px;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+}
+
+#header-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 20px;
+}
+
+#header-left div {
+  margin-left: 10px;
+}
+
+#header-search {
+  border: 1px solid rgba(238, 238, 238, 0.432);
+  border-radius: 5px;
+  width: 260px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 4px;
+  transition: width 0.5s;
+}
+
+#header-search:focus-within {
+  width: 500px;
+  background-color: #fff;
+  transition: width 0.5s;
+}
+
+#header-search:focus-within input::placeholder{
+  color: #000;
+}
+
+#header-search:focus-within button {
+  color: #000;
+  border-color: #000;
+}
+
+#header-search input {
+  background-color: transparent;
+  color: #fff;
+  width: 95%;
+  border: none;
+}
+
+#header-search input:focus {
+  outline: none;
+  color: #000;
+}
+
+#header-search input::placeholder {
+  color: rgba(238, 238, 238, 0.829);
+  font-size: 14px;
+}
+
+
+#header-search button {
+  background-color: transparent;
+  color: rgba(238, 238, 238, 0.432);;
+  border: 1px solid rgba(238, 238, 238, 0.432);
+  border-radius: 5px;
+  outline: none;
+  margin: 0;
+}
+
+#logo img {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+#header-links {
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#header-links .link {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#header-icons button{
+  background-color: transparent;
+  border:none;
+  outline: none;
+  color: #fff;
+}
+
+.flex{
+  flex: 1
+}
+
+#header-right {
+  margin-right: 20px;
+}
+
+#header-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#header-right button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+#header-right img {
+  margin-right: 2px;
+}
+
+#header-right .avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
 }
