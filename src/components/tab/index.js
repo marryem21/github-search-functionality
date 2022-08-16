@@ -1,7 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-const Tab = ({ repos }) => {
+const Tab = () => {
   return (
     <div id="tab">
       <button>
@@ -9,7 +8,6 @@ const Tab = ({ repos }) => {
       </button>
       <button className="active">
         <span className="description">Repositories</span>
-        <div className="count"></div>
       </button>
       <button>
         <span>Projects</span>
@@ -19,10 +17,6 @@ const Tab = ({ repos }) => {
       </button>
     </div>
   );
-};
-
-Tab.propTypes = {
-  totalCount: PropTypes.number,
 };
 
 export default Tab;

@@ -1,25 +1,19 @@
 import React from "react";
-import PropTypes from "prop-types";
-
 import RepoSection from "../repo-section";
 import ProfileSection from "../profile-section";
 import Tab from "../tab";
-
-const Contents = () => {
+// in this section we devide the content area to 3 coponents
+const Contents = ({ userInfo, repos }) => {
+  // console.log("got to contents", userInfo);
   return (
     <div id="contents">
-      {/* section where we find the user's info on the right */}
-      {<ProfileSection />}
-      {/* section where we have overview repositories projects and packages buttons */}
-      {<Tab />}
-      {/* section where we display repos dynamically */}
-      {<RepoSection />}
+      {<ProfileSection userInfo={userInfo} />}
+
+      {<Tab repos={repos} />}
+
+      {<RepoSection repos={repos} />}
     </div>
   );
-};
-
-Contents.propTypes = {
-  data: PropTypes.object,
 };
 
 export default Contents;

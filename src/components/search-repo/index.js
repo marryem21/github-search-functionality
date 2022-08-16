@@ -1,15 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import Repos from "../repos";
 
 const SearchRepo = (props) => {
-  //the repo search input and the filter logic will be hee
+  //repos passed from props
+  const { repos } = props;
+  //state to store changing input on repo's search
+  const [repoInput, setRepoInput] = useState("");
+  console.log(repoInput);
+  //function to handle change on repo input
+  const handleChange = (e) => {
+    setRepoInput(e.target.value);
+  };
+  //state to store final filtering string
+  const [filter, setFilter] = useState("");
+
+  //handle click function
+  const handleClick = () => {
+    setFilter(repoInput);
+    console.log(filter);
+  };
   return (
     <div>
       <div className="search-repo">
-        <input placeholder="Find a repository..." type="text" onChange="" />
+        {/* search bar to filter repositories */}
+        <input
+          placeholder="Find a repository..."
+          type="text"
+          onChange={handleChange}
+        />
         <div className="search-repo-btns">
           <div className="select-btns">
-            <button onClick="">Search</button>
+            {/* button to be clicked in order to apply filter */}
+            <button onClick={handleClick}>Search</button>
             <button>
               <span>Type: All</span>
               <span>&#9662;</span>
@@ -24,7 +46,7 @@ const SearchRepo = (props) => {
           </button>
         </div>
       </div>
-      <Repos />
+      <Repos filter={filter} repos={repos} />
     </div>
   );
 };

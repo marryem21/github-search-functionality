@@ -1,3 +1,28 @@
+This project is made by : Mariem Hamdi
+Email: hammdimaryem@gmail.com
+Title: github with search functionality
+Objective: the main objective of this project is being able to extract, display and access Github users' repositories and profile informations from an interface that mimics the real Github interface  
+
+Technologies used: -React.js
+                   -Typescript
+                   -Github APIs
+                   -Axios
+How to run the project:
+*in your terminal type: npm install
+*in your terminal go to the directory where the project resides (cd/[the project's path])
+*in your terminal type : npm install axios
+*in your terminal type : npm start
+
+Future improvements: - Expand the project to behold the "Overview", "Projects" and "packages" feature.
+                     - Make the search features more dynamic by displaying a drop down showing possible searches.
+                     - Improve the instructions user interface showing in the repos section
+
+Personal thoughts on the exercise: 
+*It was an opportunity for me to work with APIs more and mimic an existing interface since I usually design my own interfaces for my frojects.
+*I would rather showing another example of the desired result with another user or give instruction about whether we are fetching all the users' data or just one.
+*The use of typescript was not clear(all the project in typescript or using just some typescript)
+Thank you ;) <3
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

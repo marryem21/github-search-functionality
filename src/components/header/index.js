@@ -1,24 +1,61 @@
-import React from "react";
-import PropTypes from "prop-types";
-import menuIcon from "../../assets/menu.png";
+import React, { useState } from "react";
 import logoIcon from "../../assets/logo.png";
 import notificationIcon from "../../assets/notification.png";
 import addIcon from "../../assets/plus.png";
 import userIcon from "../../assets/user.png";
 import Contents from "../contents";
+import axios from "axios";
 
 const Header = () => {
+  // state to store chnaging data in the search bar
+  const [searchInput, setSearchInput] = useState("");
+  //state to store data coming from the repositories' API
+  const [repos, setRepos] = useState([]);
+  //state to store the User's data coming from the user infor's API
+  const [userInfo, setUserInfo] = useState([]);
+  //handling changes on the inputted data in the top search bar
+  const handleChange = (e) => {
+    setSearchInput(e.target.value);
+    // console.log(searchInput);
+  };
+  //handling the click on the search button of the top search bar (API calls here)
+  const handleClick = async () => {
+    // console.log(searchInput);
+    try {
+      //repositories fetching
+      const result = await axios(
+        `https://api.github.com/users/${searchInput}/repos`
+      );
+      //User info's fetching
+      const userData = await axios(
+        `https://api.github.com/users/${searchInput}`
+      );
+      //storing the user's info in the state userInfo
+      setUserInfo(userData);
+      // console.log("got to the header", userInfo);
+      //storing the repositories data fetched in the state repos
+      setRepos(result);
+    } catch (err) {
+      console.log(err);
+    }
+    console.log("length is", repos.data.length);
+  };
   return (
     <div>
       <div id="header">
-        <img src={menuIcon} alt="menu" id="menu-icon" />
         <div id="header-left">
           <div id="logo">
             <img src={logoIcon} alt="logo" />
           </div>
           <div id="header-search">
-            <input onChange="" placeholder="Search user..." type="text" />
-            <button onClick="">Search</button>
+            <input
+              // function to handle changes on the input area
+              onChange={handleChange}
+              placeholder="Search user..."
+              type="text"
+            />
+            {/* button to start API calls  */}
+            <button onClick={handleClick}>Search</button>
           </div>
           <div id="header-links">
             <div className="link">Pull Requests</div>
@@ -48,14 +85,10 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {/* passing the data to the first child will be here*/}
-      {/* <Contents /> */}
+      {/* passing the data to the first child */}
+      <Contents userInfo={userInfo} repos={repos} />
     </div>
   );
-};
-
-Header.prototype = {
-  avatarUrl: PropTypes.string,
 };
 
 export default Header;

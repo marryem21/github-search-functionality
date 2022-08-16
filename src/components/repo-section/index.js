@@ -1,17 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
 import SearchRepo from "../search-repo";
 
-// we need this just to wrap the serch repo part with a div
-export const RepoSection = () => {
+export const RepoSection = (props) => {
+  const { repos } = props;
   return (
+    //call searchRepo component and wrap it inside a div to apply css to it later on
     <div id="repo-section">
-      <SearchRepo />
+      <SearchRepo repos={repos} />
     </div>
   );
-};
-RepoSection.propTypes = {
-  repos: PropTypes.array,
 };
 
 export default RepoSection;

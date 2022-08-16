@@ -1,16 +1,21 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-const Repo = () => {
+type RepoProps = {
+  name: string 
+  html_url: string
+}
+
+const Repo=(props: RepoProps)=>{
+  console.log("i got",props)
+  
   return (
     <div className="repo">
       <div className="repo-left">
         <div className="repo-name">
           <span>
-            {/* will add repos's path from API  */}
-            <a href="" target="_blank" rel="noopener noreferrer">
-              {/* will add repos's name  from API  */}
-              repo name
+            {/* display each repository with its name that it is clickable an leads to the real repo on Github */}
+            <a href={props.html_url} target="_blank" rel="noopener noreferrer">
+              {props.name}
             </a>
           </span>
         </div>
@@ -21,15 +26,11 @@ const Repo = () => {
       <div className="star-btn">
         <button>
           <span>&#x2606;</span>
-          <span>Star</span>
+          <span> Star</span>
         </button>
       </div>
     </div>
   );
-};
-
-Repo.propTypes = {
-  repo: PropTypes.object,
 };
 
 export default Repo;
